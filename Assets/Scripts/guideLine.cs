@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class guideLine : MonoBehaviour
 {
+    // The idicator used to let the player know the direction that the ball will be shot in 
     private float rotY = 0.1f;
     public float speed = 2.0f;
     [SerializeField] private GameObject ball;

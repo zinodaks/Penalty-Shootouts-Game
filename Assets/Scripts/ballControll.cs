@@ -22,6 +22,7 @@ public class ballControll : MonoBehaviour
 
     void cameraSwitching()
     {
+        //allow the user to switch between main , left and right side cameras
         if (Input.GetKey(KeyCode.M))
         {
             mainCamera.SetActive(true);
@@ -44,6 +45,8 @@ public class ballControll : MonoBehaviour
 
     void moveBall()
     {
+        //remove constraints that keep ball in place and shoot the ball in the direction that the
+        //arrow was in when the player decided to shoot
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         euler = arrow.rotation.eulerAngles;
         Quaternion rot = Quaternion.Euler(0, euler.y, 0);
@@ -67,7 +70,6 @@ public class ballControll : MonoBehaviour
 
     public IEnumerator initializeBall()
     {
-       
             yield return new WaitForSeconds(1.0f);
             StartCoroutine(handleScoring());
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -96,6 +98,7 @@ public class ballControll : MonoBehaviour
             cameraSwitching();
             if (Input.GetMouseButtonDown(0) && canShoot)
             {
+                //play a ball kicking sound 
                 kickSound.Play();
                 moveBall();
             }

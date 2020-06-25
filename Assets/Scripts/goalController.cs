@@ -34,6 +34,7 @@ public class goalController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //when the ball enters the post ,
         if (hasScored == false)
         {
             hasScored = true;
